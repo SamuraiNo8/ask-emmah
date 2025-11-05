@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hey Emmah 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Press+Start+2P&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top left, #ffb3c1, #8ec5fc, #e0c3fc);
+      font-family: 'Fredoka One', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 0px #000;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .btns {
+      margin-top: 2rem;
+    }
+
+    button {
+      background: #ff66b2;
+      border: none;
+      border-radius: 15px;
+      padding: 1rem 2rem;
+      margin: 0 1rem;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #b4004e;
+      transition: transform 0.1s ease, background 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      background: #ff3385;
+    }
+
+    #no {
+      position: absolute;
+    }
+
+    #final {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #jake {
+      position: absolute;
+      width: 150px;
+      bottom: 0;
+      left: -200px;
+      animation: slideIn 4s ease-out forwards;
+    }
+
+    #rainicorn {
+      position: absolute;
+      width: 180px;
+      bottom: 0;
+      right: -250px;
+      animation: slideInRight 4s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      to { left: 40px; }
+    }
+
+    @keyframes slideInRight {
+      to { right: 40px; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/02/audio_7adcb7a5ce.mp3?filename=soft-lofi-beat-141621.mp3" type="audio/mpeg">
+  </audio>
+
+  <img id="jake" src="https://static.wikia.nocookie.net/adventuretimewithfinnandjake/images/5/55/Jake_transparent.png" />
+  <img id="rainicorn" src="https://static.wikia.nocookie.net/adventuretimewithfinnandjake/images/f/f5/Lady_Rainicorn.png" />
+
+  <h1>Hey Emmah 💖<br>Would you do me the honor of being my girlfriend?</h1>
+
+  <div class="btns">
+    <button id="yes">Yes 😍</button>
+    <button id="no">No 🙈</button>
+  </div>
+
+  <div id="final">
+    <h1>YAY!! 💞</h1>
+    <p>Guess that’s a yes 😌✨<br><br>
+    "I knew I loved you before I even met you."<br>
+    <em>“I’ve been feeling sentimental lately, yeah, I know that isn’t cool.”</em><br>
+    — <b>TV Girl, Lovers Rock</b></p>
+    <p style="font-family:'Press Start 2P'; font-size:0.8rem; margin-top:2rem;">“Love is like a bad YouTube comment section. Messy, chaotic, but you keep coming back.” — Kurtis Conner</p>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('no');
+    const yesBtn = document.getElementById('yes');
+    const final = document.getElementById('final');
+    const h1 = document.querySelector('h1');
+    let attempts = 0;
+
+    noBtn.addEventListener('mouseover', () => {
+      if (attempts < 4) {
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+        attempts++;
+      } else {
+        noBtn.remove();
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      h1.style.display = 'none';
+      document.querySelector('.btns').style.display = 'none';
+      final.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
